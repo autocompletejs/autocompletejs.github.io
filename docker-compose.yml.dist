@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  jekyll:
+    build: ./
+    ports:
+      - 4000
+    user: "1000"
+    volumes:
+      - .:/data
+    command: serve -H 0.0.0.0
+
+  api:
+      image: nginx:1.9
+      volumes:
+          - "./api:/usr/share/nginx/html:ro"
+          - "./docker/api/default.conf:/etc/nginx/conf.d/default.conf:ro"
+
+  engine:
+      image: php:7.0-fpm
+      volumes:
+          - "./api:/usr/share/nginx/html:ro"

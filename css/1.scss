@@ -1,0 +1,206 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// Reset and dependencies
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+@import "bootstrap/glyphicons";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+// @import "bootstrap/code";
+@import "bootstrap/grid";
+// @import "bootstrap/tables";
+@import "bootstrap/forms";
+// @import "bootstrap/buttons";
+
+// Components
+// @import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+// @import "bootstrap/button-groups";
+// @import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+// @import "bootstrap/breadcrumbs";
+// @import "bootstrap/pagination";
+// @import "bootstrap/pager";
+@import "bootstrap/labels";
+// @import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+// @import "bootstrap/thumbnails";
+// @import "bootstrap/alerts";
+// @import "bootstrap/progress-bars";
+// @import "bootstrap/media";
+@import "bootstrap/list-group";
+// @import "bootstrap/panels";
+// @import "bootstrap/responsive-embed";
+// @import "bootstrap/wells";
+// @import "bootstrap/close";
+
+// Components w/ JavaScript
+// @import "bootstrap/modals";
+// @import "bootstrap/tooltip";
+// @import "bootstrap/popovers";
+// @import "bootstrap/carousel";
+
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+
+@import "font-awesome";
+
+@import 'https://fonts.googleapis.com/css?family=Lily+Script+One';
+
+body{background:white;}
+div.api-item > *{display:none;}
+div.api-item > .active{display:block;}
+div.center{text-align:center;}
+i[data-api-href]{cursor:pointer;}
+i.fa{margin:0 5px;}
+iframe{height:400px;width:100%;}
+h1.center,
+p.center{text-align:center;}
+
+#menu .navbar-toggle{float:left;margin-left:15px;}
+.api .list-group-item, .api .list-group-item.active, .api-item, .api-item.active{transition:all 0.09s ease 0s;}
+.api .list-group-item h4 > span.type{color:grey;}
+.api .list-group-item.active h4 > span.type{color:rgb(100,100,100);}
+.content
+{
+    background-color:#FAFAFA;
+    box-shadow:1px 1px 15px #aaa;
+    margin:0 auto;
+    font-family:'Varela Round', sans-serif;
+}
+@media (max-width:749px)
+{
+    body
+    {
+        font-size:23px;
+    }
+    
+    div.api-item > *
+    {
+        display: block;
+    }
+
+    h1 > span.label
+    {
+        font-size: 24px;
+    }
+
+    .api .list-group-item h4 > span.type
+    {
+        font-size: 23px;
+    }
+
+    .content{
+        padding: 10px 10px;
+        max-width: 749px;
+    }
+
+    .credit a i
+    {
+        font-size: 29px;
+    }
+
+    .fork-me
+    {
+        position:absolute;
+        top:0;
+        right:0;
+        border:0;
+        z-index:5;
+    }
+}
+
+@media (min-width:750px){body{font-size:20px;}
+div.api-item > *{display:block;}
+h1 > span.label{font-size:21px;}
+.api .list-group-item h4 > span.type{font-size:20px;}
+.content{padding:10px 20px;max-width:991px;}
+.credit a i{font-size:26px;}
+.fork-me{position:absolute;top:0;right:0;border:0;z-index:5;}
+}
+@media (min-width:992px){body{font-size:17px;}
+div.api-item > *{display:block;}
+h1 > span.label{font-size:18px;}
+.api .list-group-item h4 > span.type{font-size:17px;}
+.content{padding:10px 60px;max-width:1199px;}
+.credit a i{font-size:22px;}
+.fork-me{position:fixed;top:0;right:0;border:0;z-index:5;}
+}
+@media (min-width:1200px){body{font-size:14px;}
+div.api-item > *{display:none;}
+h1 > span.label{font-size:15px;}
+.api .list-group-item h4 > span.type{font-size:14px;}
+.content{padding:10px 60px;max-width:1400px;}
+.credit a i{font-size:20px;}
+.fork-me{position:fixed;top:0;right:0;border:0;z-index:5;}
+}
+.code-attr-name{color:#A6E22E;}
+.code-attr-value{color:#E6DB74;}
+.code-balise{color:#F92672;}
+.code-required{color:#F92672;}
+.code-optional{color:#66D9EF;}
+.code-comment{color:#75715E;}
+.credit{margin:20px 0 0 0;}
+.dropdown-menu{min-width:inherit;}
+.jumbotron {
+    padding: 30px;
+}
+.points{text-align:center;}
+.fa-twitter{color:#00ACEE;}
+.fa-github{color:#2E2E2D;}
+.fa-cloud-download{color:#2E2E2D;}
+.fa-google-plus{color:#DD4B39;}
+.fa-stack-overflow{color:#EB9506;}
+.list-group-item i.fa, .list-group-item i.glyphicon{padding-right:5px;}
+.title, h1{font-family:'Lily Script One', cursive;}
+*[data-api]{cursor:pointer;}
+.customer{clear:both;}
+
+input[data-autocomplete]
+{
+    font-family: fontAwesome;
+    border-radius: 0;
+    border-width: 0 0 0 0 !important;
+
+    &:focus {
+        border-width: 0px 0px 1px;
+        border-color: #66AFE9;
+        outline: 0px none;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px 0px rgba(102, 175, 233, 0.6);
+    }
+}
+
+.autocomplete {
+    transition: 0.5s;
+    z-index: 5;
+
+    &.open {
+        border-color: #66AFE9;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px 0px rgba(102, 175, 233, 0.6);
+        outline: 0px none;
+        transition: 0.5s;
+        z-index: 2;
+    }
+}
+
+.no-padding {
+    padding: 0;
+
+    &-left {
+        padding-left: 0;
+    }
+
+    &-right {
+        padding-right: 0;
+    }
+}
