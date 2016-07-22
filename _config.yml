@@ -19,8 +19,10 @@ github_username:  autocompletejs
 
 # Build settings
 markdown: kramdown
+
 gems:
   - jekyll-assets
+
 exclude:
   - api
   - docker
@@ -28,3 +30,6 @@ exclude:
   - Dockerfile
   - Gemfile
   - Gemfile.lock
+
+include:
+  - .nojekyll
