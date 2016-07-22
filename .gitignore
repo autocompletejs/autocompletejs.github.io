@@ -1,5 +1,8 @@
 .jekyll-metadata
 .sass-cache
 _site
+bower_components
 docker-compose.yml
 Gemfile.lock
+node_modules
+vendor

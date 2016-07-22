@@ -25,11 +25,17 @@ gems:
 
 exclude:
   - api
+  - bower.json
+  - bower_components
   - docker
   - docker-compose.yml.dist
   - Dockerfile
   - Gemfile
   - Gemfile.lock
+  - Gruntfile
+  - node_modules
+  - package.json
+  - Rakefile
 
 include:
   - .nojekyll
