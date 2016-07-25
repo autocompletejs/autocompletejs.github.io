@@ -5,7 +5,7 @@ task :deploy do
   puts "## Deploying to Github Pages"
 
   puts "## Generating site"
-  system "grunt build"
+  system "npm run grunt build"
 
   cd "_site" do
     system "git add -A"
@@ -14,8 +14,8 @@ task :deploy do
     puts "## Commiting: #{message}"
     system "git commit -m \"#{message}\""
 
-    puts "## Pushing generated site"
-    system "git push"
+    # puts "## Pushing generated site"
+    # system "git push"
 
     puts "## Deploy Complete!"
   end

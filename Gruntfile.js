@@ -2,37 +2,9 @@
 module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-bower-task");
   grunt.loadNpmTasks("grunt-contrib-connect");
-  grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-exec");
   grunt.initConfig({
-    copy: {
-//      jquery: {
-//        files: [
-//          {
-//            expand: true,
-//            cwd: "bower_components/jquery/dist/",
-//            src: "jquery.min.js",
-//            dest: "vendor/js/"
-//          }
-//        ]
-//      },
-//      bootstrap: {
-//        files: [
-//          {
-//            expand: true,
-//            cwd: "bower_components/bootstrap/dist/css/",
-//            src: "bootstrap.min.css",
-//            dest: "vendor/css/"
-//          }, {
-//            expand: true,
-//            cwd: "bower_components/bootstrap/dist/js/",
-//            src: "bootstrap.min.js",
-//            dest: "vendor/js/"
-//          }
-//        ]
-//      }
-    },
     exec: {
       jekyll: {
         cmd: "jekyll build --trace"
@@ -43,7 +15,7 @@ module.exports = function(grunt) {
         livereload: true
       },
       source: {
-        files: ["_drafts/**/*", "_includes/**/*", "_layouts/**/*", "_posts/**/*", "css/**/*", "js/**/*", "_config.yml", "*.html", "*.md"],
+        files: ["_layouts/**/*", "css/**/*", "js/**/*", "_config.yml", "*.html"],
         tasks: ["exec:jekyll"]
       }
     },
@@ -57,7 +29,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.registerTask("build", ["copy", "exec:jekyll"]);
+  grunt.registerTask("build", ["exec:jekyll"]);
   grunt.registerTask("serve", ["build", "connect:server", "watch"]);
   return grunt.registerTask("default", ["serve"]);
 };
