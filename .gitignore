@@ -1,5 +1,9 @@
+.bundle
+.cache
+.config
 .jekyll-metadata
 .sass-cache
+.ssh
 _site
 bower_components
 docker-compose.yml

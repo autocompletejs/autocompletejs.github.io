@@ -1,22 +1,29 @@
 version: '2'
 
 services:
-  jekyll:
-    build: ./
-    ports:
-      - 4000
-    user: "1000"
-    volumes:
-      - .:/data
-    command: serve -H 0.0.0.0
+    api:
+        image: nginx:1.9
+        volumes:
+            - "./api:/usr/share/nginx/html:ro"
+            - "./docker/api/default.conf:/etc/nginx/conf.d/default.conf:ro"
+        environment:
+            - VIRTUAL_HOST=local.api.autocomplete-js.com
 
-  api:
-      image: nginx:1.9
-      volumes:
-          - "./api:/usr/share/nginx/html:ro"
-          - "./docker/api/default.conf:/etc/nginx/conf.d/default.conf:ro"
+    engine:
+        image: php:7.0-fpm
+        volumes:
+            - "./api:/usr/share/nginx/html:ro"
 
-  engine:
-      image: php:7.0-fpm
-      volumes:
-          - "./api:/usr/share/nginx/html:ro"
+    jekyll_prod:
+        build: ./
+        volumes:
+            - .:/data
+        command: rake deploy
+
+    jekyll_dev:
+        build: ./
+        volumes:
+            - .:/data
+        ports:
+            - 4000
+        command: npm run grunt
