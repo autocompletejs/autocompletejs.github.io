@@ -1,9 +1,9 @@
 "use strict";
 
 const countries = require("./countries.json");
-const app = require('express')()
+const app = require("express")()
  
-app.get('/', function (req, res) {
+app.get("/", function (req, res) {
 	let query = "";
 	let returns = [];
 
@@ -19,6 +19,7 @@ app.get('/', function (req, res) {
 		}
 	}
 
+	res.set("Content-Type", "application/json");
 	res.send(JSON.stringify(returns));
 });
  

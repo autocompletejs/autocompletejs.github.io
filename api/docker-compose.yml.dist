@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  api:
+    image: node:4
+    ports:
+      - 8000
+    volumes:
+      - ./main.js:/data/main.js:ro
+      - ./countries.json:/data/countries.json:ro
+      - ./package.json:/data/package.json:ro
+    working_dir: /data
+    command: npm start
