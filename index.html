@@ -21,23 +21,23 @@ layout: default
         <meta property="og:site_name" content="autocomplete.js" />
         <meta property="og:title" content="autocomplete.js | Remote AutoComplete" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://autocomplete-js.com/" />
+        <meta property="og:url" content="http://autocomplete-js.com/" />
         <meta property="twitter:description" content="autocomplete.js is a fast and lightweight autocomplete library, without any dependencies." />
         
         <meta itemprop="applicationCategory" content="JavaScript Library">
-        <meta itemprop="datePublished" content="2016-02-21">
-        <meta itemprop="downloadUrl" content="https://github.com/autocompletejs/autocomplete.js/archive/v2.0.2.zip">
-        <meta itemprop="image" content="https://autocomplete-js.com/autocomplete-js.png">
+        <meta itemprop="datePublished" content="2016-07-28">
+        <meta itemprop="downloadUrl" content="https://github.com/autocompletejs/autocomplete.js/archive/v2.1.0.zip">
+        <meta itemprop="image" content="http://autocomplete-js.com/autocomplete-js.png">
         <meta itemprop="operatingSystem" content="Depend on the browser">
         <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
             <meta itemprop="name" content="Baptiste Donaux">
         </span>
         <meta itemprop="requirements" content="ECMAScript Edition 5">
-        <meta itemprop="softwareVersion" content="2.0">
-        <meta itemprop="url" content="https://autocomplete-js.com">
+        <meta itemprop="softwareVersion" content="2.1">
+        <meta itemprop="url" content="http://autocomplete-js.com">
 
         <link rel="author" href="https://plus.google.com/+BaptisteDonaux"/>
-        <link rel="canonical" href="https://autocomplete-js.com/" />
+        <link rel="canonical" href="http://autocomplete-js.com/" />
         <link rel="publisher" href="https://plus.google.com/+BaptisteDonaux"/>
         <!-- end meta -->
         
@@ -117,7 +117,7 @@ layout: default
                     <div class="jumbotron point">
                         <h3>Lite</h3>
                         <p>
-                            7.6KB<br/>
+                            8 KB<br/>
                             <i class="fa fa-thumbs-up"></i>
                         </p>
                     </div>
@@ -174,13 +174,7 @@ layout: default
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="jumbotron point" style="height: 170px; line-height: 170px; padding: 0;">
                         <div class="row">
-                            <div class="col-xs-6" style="height: 75px;">
-                                <a href="http://brunch.io/" target="_blank">
-                                    <img src="/images/brunch.svg" style="max-width: 200px;">
-                                </a>
-                            </div>
-                            
-                            <div class="col-xs-6" style="height: 75px;">
+                            <div class="col-xs-offset-3 col-xs-6" style="height: 75px;">
                                 <a href="http://www.typescriptlang.org/" target="_blank">
                                     <img src="/images/typescript.png" style="max-width: 200px; padding-top: 13px;">
                                 </a>
@@ -193,16 +187,36 @@ layout: default
                     <div class="jumbotron point" style="height: 170px; line-height: 170px; padding: 0;">
 
                         <div class="btn-group pull-right" role="group" aria-label="installation-methods">
-                            <button type="button" class="btn btn-primary" id="installation-bower">Bower</button>
+                            <button type="button" class="btn btn-primary" id="installation-npm">NPM</button>
+                            <button type="button" class="btn btn-default" id="installation-bower">Bower</button>
                             <button type="button" class="btn btn-default" id="installation-scratch">From scratch</button>
                         </div>
 
-                        <div data-id="installation-bower">
+                        <div data-id="installation-npm">
+                            <div class="col-lg-8">
+                                <pre style="line-height:1.5; text-align: left;"><code class="javascript">// package.json
+{
+  "dependencies": {
+    "autocomplete-js": "2.1.*"
+  }
+}
+</code></pre>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <svg viewBox="0 0 18 7">
+                                    <path fill="#CB3837" d="M0,0v6h5v1h4v-1h9v-6"></path>
+                                    <path fill="#FFF" d="M1,1v4h2v-3h1v3h1v-4h1v5h2v-4h1v2h-1v1h2v-4h1v4h2v-3h1v3h1v-3h1v3h1v-4"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div data-id="installation-bower" class="hide">
                             <div class="col-lg-8">
                                 <pre style="line-height:1.5; text-align: left;"><code class="javascript">// bower.json
 {
   "dependencies": {
-    "autocomplete.js": "2.0.*"
+    "autocomplete.js": "2.1.*"
   }
 }
 </code></pre>
@@ -215,7 +229,7 @@ layout: default
 
                         <div data-id="installation-scratch" class="hide">
                             <p>
-                                Download the last stable version <a href="https://github.com/autocompletejs/autocomplete.js/archive/v2.0.2.zip"><i class="fa fa-cloud-download"></i></a> <a href="https://github.com/autocompletejs/autocomplete.js/releases/tag/v2.0.2" target="_blank"><i class="fa fa-github"></i></a>
+                                Download the last stable version <a href="https://github.com/autocompletejs/autocomplete.js/archive/v2.1.0.zip"><i class="fa fa-cloud-download"></i></a> <a href="https://github.com/autocompletejs/autocomplete.js/tree/v2.1.0" target="_blank"><i class="fa fa-github"></i></a>
                             </p>
                         </div>
                     </div>
@@ -524,7 +538,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L260" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L260" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -558,7 +572,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L195" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L195" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -592,7 +606,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L274" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L274" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -620,7 +634,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L214" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L214" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -651,7 +665,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L227" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L227" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -681,7 +695,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L285" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L285" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -709,7 +723,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L238" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L238" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -742,7 +756,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L299" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L299" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -774,7 +788,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L347" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L347" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -795,7 +809,7 @@ data-autocomplete="/my/url"
                         </td>
 
                         <td>
-                            Value returned must be a <strong>string</strong> or an <strong>array of <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L70" target="_blank">ResponseItem</a></strong>
+                            Value returned must be a <strong>string</strong> or an <strong>array of <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L70" target="_blank">ResponseItem</a></strong>
                         </td>
                     </tr>
                     <tr>
@@ -807,7 +821,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L307" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L307" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -824,7 +838,7 @@ data-autocomplete="/my/url"
                         </td>
 
                         <td>
-                            <strong>response</strong> argument must be a <strong>string</strong> or an <strong>array of <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L70" target="_blank">ResponseItem</a></strong>.
+                            <strong>response</strong> argument must be a <strong>string</strong> or an <strong>array of <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L70" target="_blank">ResponseItem</a></strong>.
                         </td>
                         <td style="text-align: center;">n/a</td>
                     </tr>
@@ -837,7 +851,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L382" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L382" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -868,7 +882,7 @@ data-autocomplete="/my/url"
                         </td>
                         
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L389" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L389" target="_blank">
                                 Show default
                             </a>
                         </td>
@@ -898,7 +912,7 @@ data-autocomplete="/my/url"
                         </td>
 
                         <td>
-                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.0.2/src/autocomplete.ts#L249" target="_blank">
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L249" target="_blank">
                                 Show default
                             </a>
                         </td>
