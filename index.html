@@ -362,6 +362,49 @@ data-autocomplete-empty-message="My message"
 /&gt;</code></pre>
                         </td>
                     </tr>
+
+                    <!-- Highlight -->
+                    <tr>
+                        <td>
+                            <a href="#Highlight" id="Highlight">
+                                <i class="glyphicon glyphicon-link"></i>
+                            </a>
+                            Highlight
+                        </td>
+
+                        <td>
+                            <pre><code class="javascript">{
+getRegex: function (value) {
+    return new RegExp(value, "ig");
+},
+transform: function(value) {
+    return "&lt;strong&gt;" + value + "&lt;/strong&gt;";
+}
+}</code></pre>
+                        </td>
+
+                        <td>
+                            <strong>Object</strong> value.<br/>
+                            Contains an object with two keys : <strong>getRegex</strong> and <strong>transform</strong>. Both are functions. First returns a RegExp to identify part of result which must be highlighted. Second transforms part which must be highlighted.
+                        </td>
+
+                        <td>
+                            <pre><code class="javascript">AutoComplete({
+Highlight: {
+    getRegex: function (value) {
+        return new RegExp(value, "ig");
+    },
+    transform: function(value) {
+        return "&lt;strong&gt;" + value + "&lt;/strong&gt;";
+    }
+},
+});</code></pre>
+                        </td>
+
+                        <td style="text-align:center;">n/a</td>
+                    </tr>
+                    <!-- End Highlight -->
+
                     <tr>
                         <td>
                             <a href="#HttpHeaders" id="HttpHeaders">
@@ -597,6 +640,8 @@ data-autocomplete="/my/url"
                             Empty message to display when no results found.
                         </td>
                     </tr>
+
+                    <!-- _Focus -->
                     <tr>
                         <td>
                             <a href="#_Focus" id="_Focus">
@@ -625,6 +670,43 @@ data-autocomplete="/my/url"
                         <td style="text-align: center;">n/a</td>
                         <td style="text-align: center;">n/a</td>
                     </tr>
+                    <!-- End _Focus -->
+                    
+                    <!-- _Highlight -->
+                    <tr>
+                        <td>
+                            <a href="#_Highlight" id="_Highlight">
+                                <i class="glyphicon glyphicon-link"></i>
+                            </a>
+                            _Highlight
+                        </td>
+                        
+                        <td>
+                            <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L239" target="_blank">
+                                Show default
+                            </a>
+                        </td>
+                        
+                        <td>
+                            Highlight part of results which match with query search.
+                        </td>
+                        
+                        <td>
+                            <pre><code class="javascript">AutoComplete({
+    _Highlight: function(label) {
+    },
+});</code></pre>
+                        </td>
+
+                        <td>
+                            <strong>label</strong> argument is the item result.
+                        </td>
+                        <td>
+                            Must return a string value. <strong>label</strong> argument highlighted.
+                        </td>
+                    </tr>
+                    <!-- End _Highlight -->
+
                     <tr>
                         <td>
                             <a href="#_Limit" id="_Limit">
