@@ -1,19 +1,6 @@
 version: '2'
 
 services:
-    api:
-        image: nginx:1.9
-        volumes:
-            - "./api:/usr/share/nginx/html:ro"
-            - "./docker/api/default.conf:/etc/nginx/conf.d/default.conf:ro"
-        environment:
-            - VIRTUAL_HOST=local.api.autocomplete-js.com
-
-    engine:
-        image: php:7.0-fpm
-        volumes:
-            - "./api:/usr/share/nginx/html:ro"
-
     jekyll_prod:
         build: ./
         volumes:
