@@ -1,18 +1,20 @@
 markdown: kramdown
 
-gems:
-  - jekyll-assets
+# gems:
+#   - jekyll-assets
 
 exclude:
   - api
   - bower.json
   - bower_components
+  - css
   - docker
   - docker-compose.yml.dist
   - Dockerfile
   - Gemfile
   - Gemfile.lock
   - Gruntfile
+  - lib
   - node_modules
   - package.json
   - Rakefile
