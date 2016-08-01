@@ -33,6 +33,11 @@ module.exports = function(grunt) {
         files: {
           '_site/css/main.css': 'css/main.less',
           '_site/css/1.css': 'css/1.less'
+        },
+        options: {
+          plugins: [
+            new (require('less-plugin-clean-css'))({})
+          ]
         }
       }
     },
