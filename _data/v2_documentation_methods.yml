@@ -1,0 +1,11 @@
+- name: _Blur
+  description: Method to hide results
+  snippet:
+    source: L282
+    prototype: >
+      AutoComplete({
+        _Blur: function(now) {
+        }
+      });
+    definition: >
+      <strong>now</strong> argument is a boolean value. The default value is <strong>false</strong>.
