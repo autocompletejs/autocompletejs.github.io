@@ -5,6 +5,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-connect");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-less");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-exec");
   grunt.initConfig({
@@ -33,6 +34,14 @@ module.exports = function(grunt) {
           "js/analytics.js"
         ],
         dest: '_site/js/main.js',
+      }
+    },
+    uglify: {
+      main: {
+        files: {
+          '_site/js/1.js': ['_site/js/1.js'],
+          '_site/js/main.js': ['_site/js/main.js']
+        }
       }
     },
     copy: {
@@ -75,7 +84,7 @@ module.exports = function(grunt) {
       },
       jekyll: {
         files: ["_layouts/**/*", "_data/**/*", "_includes/**/*", "css/**/*", "js/**/*", "_config.yml", "*.html"],
-        tasks: ["exec:jekyll", "concat", "less", "copy"]
+        tasks: ["exec:jekyll", "concat", "uglify", "less", "copy"]
       },
       css: {
         files: ["css/**/*"],
@@ -83,7 +92,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: ["js/**/*"],
-        tasks: ["concat"]
+        tasks: ["concat", "uglify"]
       }
     },
     connect: {
@@ -96,7 +105,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.registerTask("build", ["bower:install", "exec:jekyll", "concat", "less", "copy"]);
+  grunt.registerTask("build", ["bower:install", "exec:jekyll", "concat", "uglify", "less", "copy"]);
   grunt.registerTask("serve", ["build", "connect:server", "watch"]);
   return grunt.registerTask("default", ["serve"]);
 };
