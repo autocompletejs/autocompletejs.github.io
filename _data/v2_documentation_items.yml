@@ -1,0 +1,143 @@
+- name: Delay
+  description: >
+    <strong>Integer</strong> value.<br/>
+    Must be a <strong>positive</strong> value.<br/>
+    Time between the keyboard event and request sent.
+  snippet:
+    default:
+      type: plain
+      value: 150
+    js: >
+      AutoComplete({
+        Delay: 300,
+      });
+
+- name: EmptyMessage
+  description: >
+    <strong>String</strong> value.<br/>
+    Message displayed when no result found.
+  snippet:
+    default:
+      type: plain
+      value: No result here
+    js: >
+      AutoComplete({
+        EmptyMessage: "Oh Sh*t ! No results !",
+      });
+    html: >
+      &lt;input
+        data-autocomplete-empty-message="My message"
+      /&gt;
+
+- name: Highlight
+  description: >
+    <strong>Object</strong> value.<br/>
+    Contains an object with two keys : <strong>getRegex</strong> and <strong>transform</strong>. Both are functions. First returns a RegExp to identify part of result which must be highlighted. Second transforms part which must be highlighted.
+  snippet:
+    default:
+      type: javascript
+      value: >
+        {
+          getRegex: function (value) {
+            return new RegExp(value, "ig");
+          },
+          transform: function(value) {
+            return "&lt;strong&gt;" + value + "&lt;/strong&gt;";
+          }
+        }
+    js: >
+      AutoComplete({
+        Highlight: {
+          getRegex: function (value) {
+            return new RegExp(value, "ig");
+          },
+          transform: function(value) {
+            return "&lt;strong&gt;" + value + "&lt;/strong&gt;";
+          }
+        },
+      });
+
+- name: HttpHeaders
+  description: >
+    <strong>JSON</strong> value.<br/>
+    HTTP headers sent in request.
+  snippet:
+    default:
+      type: json
+      value: >
+        {
+          "Content-type": "application/x-www-form-urlencoded"
+        }
+    js: >
+      AutoComplete({
+        HttpHeaders: {
+          "token": "sakjfh97325437hskfsdfd"
+        }
+      });
+
+- name: HttpMethod
+  description: >
+    <strong>String</strong> value.<br/>
+    Contains HTTP method used to send request.
+  snippet:
+    default:
+      type: plain
+      value: GET
+    js: >
+      AutoComplete({
+        HttpMethod: "POST"
+      });
+    html: >
+      &lt;input
+        data-autocomplete-method="POST"
+      /&gt;
+
+- name: Limit
+  description: >
+    <strong>Integer</strong> value.<br/>
+    When <strong><i>value</i> == 0</strong>, no limit applied.<br/>
+    When <strong><i>value</i> &gt; 0</strong>, display only X items.<br/>
+    When <strong><i>value</i> &lt; 0</strong>, display only <strong>last</strong> X items.<br/>
+  snippet:
+    default:
+      type: plain
+      value: 0
+    js: >
+      AutoComplete({
+        Limit: 10
+      });
+    html: >
+      &lt;input
+        data-autocomplete-limit="10"
+      /&gt;
+
+- name: QueryArg
+  description: >
+    <strong>String</strong> value.<br/>
+    Parameter name used to send value into the request.
+  snippet:
+    default:
+      type: plain
+      value: q
+    js: >
+      AutoComplete({
+        QueryArg: "query_search"
+      });
+    html: >
+      &lt;input
+        data-autocomplete-param-name="query_search"
+      /&gt;
+
+- name: Url
+  description: >
+    <strong>String</strong> value.<br/>
+    Parameter name used to send value into the request.
+  snippet:
+    js: >
+      AutoComplete({
+        Url: "/my/url"
+      });
+    html: >
+      &lt;input
+        data-autocomplete="/my/url"
+      /&gt;

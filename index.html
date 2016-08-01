@@ -237,8 +237,6 @@ autocompletejs:
     </div>
 </div>
 
-    <!-- <div class="clearfix"></div> -->
-
 <div style="text-align: center;">
     <!-- Documentation Top -->
     <ins class="adsbygoogle"
@@ -252,267 +250,78 @@ autocompletejs:
     <h2>Documentation</h2>
 
     <h3>Value arguments</h3>
+
     <table class="table table-hover table-striped">
         <thead>
-            <th>Param name</th>
-            <th>Default value</th>
-            <th>Definition</th>
-            <th>Override JS declaration</th>
-            <th>Override HTML declaration</th>
+            <tr>
+                <th>Parameter</th>
+                <th>Definition</th>
+                <th>Snippets</th>
+            </tr>
         </thead>
 
         <tbody>
+            {% for item in site.data.v2_documentation_items %}
             <tr>
                 <td>
-                    <a href="#Delay" id="Delay">
-                        <i class="glyphicon glyphicon-link"></i>
+                    <a href="#{{ item.name }}" id="{{ item.name }}">
+                        {{ item.name }}
                     </a>
-                    Delay
                 </td>
 
                 <td>
-                    150
+                    {{ item.description }}
                 </td>
 
                 <td>
-                    <strong>Integer</strong> value.<br/>
-                    Mut be a <strong>positive</strong> value.<br/>
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active">
+                                <a href="#{{ item.name }}_default" aria-controls="home" role="tab" data-toggle="tab">
+                                    Default
+                                </a>
+                            </li>
 
-                    Time between the keyboard event and request sent.
-                </td>
+                            <li>
+                                <a href="#{{ item.name }}_js" aria-controls="{{ item.name }}_js" role="tab" data-toggle="tab">JS</a>
+                            </li>
 
-                <td>
-                    <pre><code class="javascript">AutoComplete({
-Delay: 300,
-});</code></pre>
-                </td>
+                            <li>
+                                <a href="#{{ item.name }}_html" aria-controls="{{ item.name }}_html" role="tab" data-toggle="tab">HTML</a>
+                            </li>
+                        </ul>
 
-                <td style="text-align: center;">
-                    n/a
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="{{ item.name }}_default">
+                                {% if item.snippet.default %}
+                                    {% if item.snippet.default.type == "plain" %}
+                                    {{ item.snippet.default.value }}
+                                    {% else %}
+                                    <pre><code class="{{ item.snippet.default.type }}">{{ item.snippet.default.value }}</code></pre>
+                                    {% endif %}
+                                {% else %}
+                                n/a
+                                {% endif %}
+                            </div>
+
+                            <div role="tabpanel" class="tab-pane" id="{{ item.name }}_js">
+                                <pre><code class="javascript">{{ item.snippet.js }}</code></pre>
+                            </div>
+
+                            {% if item.snippet.html %}
+                            <div role="tabpanel" class="tab-pane" id="{{ item.name }}_html">
+                                <pre><code class="html">{{ item.snippet.html }}</code></pre>
+                            </div>
+                            {% else %}
+                            <div role="tabpanel" class="tab-pane" id="{{ item.name }}_html">
+                                n/a
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <a href="#EmptyMessage" id="EmptyMessage">
-                        <i class="glyphicon glyphicon-link"></i>
-                    </a>
-                    EmptyMessage
-                </td>
-
-                <td>
-                    <strong>No result here</strong>
-                </td>
-
-                <td>
-                    <strong>String</strong> value.<br/>
-                    Message displayed when no result found.
-                </td>
-
-                <td>
-                    <pre><code class="javascript">AutoComplete({
-EmptyMessage: "Oh Sh*t ! No results !",
-});</code></pre>
-                </td>
-
-                <td>
-                    <pre><code class="html">&lt;input
-data-autocomplete-empty-message="My message"
-/&gt;</code></pre>
-                </td>
-            </tr>
-
-            <!-- Highlight -->
-            <tr>
-                <td>
-                    <a href="#Highlight" id="Highlight">
-                        <i class="glyphicon glyphicon-link"></i>
-                    </a>
-                    Highlight
-                </td>
-
-                <td>
-                    <pre><code class="javascript">{
-getRegex: function (value) {
-return new RegExp(value, "ig");
-},
-transform: function(value) {
-return "&lt;strong&gt;" + value + "&lt;/strong&gt;";
-}
-}</code></pre>
-                </td>
-
-                <td>
-                    <strong>Object</strong> value.<br/>
-                    Contains an object with two keys : <strong>getRegex</strong> and <strong>transform</strong>. Both are functions. First returns a RegExp to identify part of result which must be highlighted. Second transforms part which must be highlighted.
-                </td>
-
-                <td>
-                    <pre><code class="javascript">AutoComplete({
-Highlight: {
-getRegex: function (value) {
-return new RegExp(value, "ig");
-},
-transform: function(value) {
-return "&lt;strong&gt;" + value + "&lt;/strong&gt;";
-}
-},
-});</code></pre>
-                </td>
-
-                <td style="text-align:center;">n/a</td>
-            </tr>
-            <!-- End Highlight -->
-
-            <tr>
-                <td>
-                    <a href="#HttpHeaders" id="HttpHeaders">
-                        <i class="glyphicon glyphicon-link"></i>
-                    </a>
-                    HttpHeaders
-                </td>
-
-                <td>
-                    <pre><code class="json">{
-"Content-type":
-"application/x-www-form-urlencoded"
-}</code></pre>
-                </td>
-
-                <td>
-                    <strong>JSON</strong> value.<br/>
-                    HTTP headers sent in request.
-                </td>
-
-                <td>
-                    <pre><code class="javascript">AutoComplete({
-HttpHeaders: {
-"token": "sakjfh97325437hskfsdfd",
-},
-});</code></pre>
-                </td>
-
-                <td style="text-align:center;">n/a</td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#HttpMethod" id="HttpMethod">
-                        <i class="glyphicon glyphicon-link"></i>
-                    </a>
-                    HttpMethod
-                </td>
-
-                <td>
-                    GET
-                </td>
-
-                <td>
-                    <strong>String</strong> value.<br/>
-                    Contains HTTP method used to send request.
-                </td>
-
-                <td>
-                    <pre><code class="javascript">AutoComplete({
-HttpMethod: "POST",
-});</code></pre>
-                </td>
-
-                <td>
-                    <pre><code class="html">&lt;input
-data-autocomplete-method="POST"
-/&gt;</code></pre>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#Limit" id="Limit">
-                        <i class="glyphicon glyphicon-link"></i>
-                    </a>
-                    Limit
-                </td>
-
-                <td>
-                    0
-                </td>
-
-                <td>
-                    <strong>Integer</strong> value.<br/>
-                    When <strong><i>value</i> == 0</strong>, no limit applied.<br/>
-                    When <strong><i>value</i> &gt; 0</strong>, display only X items.<br/>
-                    When <strong><i>value</i> &lt; 0</strong>, display only <strong>last</strong> X items.<br/>
-
-
-                </td>
-
-                <td>
-                    <pre><code class="javascript">AutoComplete({
-Limit: 10,
-});</code></pre>
-                </td>
-
-                <td>
-                    <pre><code class="html">&lt;input
-data-autocomplete-limit="10"
-/&gt;</code></pre>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#QueryArg" id="QueryArg">
-                        <i class="glyphicon glyphicon-link"></i>
-                    </a>
-                    QueryArg
-                </td>
-
-                <td>
-                    q
-                </td>
-
-                <td>
-                    <strong>String</strong> value.<br/>
-                    Parameter name used to send value into the request.
-                </td>
-
-                <td>
-                    <pre><code class="javascript">AutoComplete({
-QueryArg: "query_search",
-});</code></pre>
-                </td>
-
-                <td>
-                    <pre><code class="html">&lt;input
-data-autocomplete-param-name="query_search"
-/&gt;</code></pre>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#Url" id="Url">
-                        <i class="glyphicon glyphicon-link"></i>
-                    </a>
-                    Url
-                </td>
-
-                <td>
-                    <i>no default value</i>
-                </td>
-
-                <td>
-                    <strong>String</strong> value.
-                    Contains URL to call.
-                </td>
-
-                <td>
-                    <pre><code class="javascript">AutoComplete({
-Url: "/my/url",
-});</code></pre>
-                </td>
-
-                <td>
-                    <pre><code class="html">&lt;input
-data-autocomplete="/my/url"
-/&gt;</code></pre>
-                </td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 
