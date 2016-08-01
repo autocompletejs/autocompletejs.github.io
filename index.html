@@ -195,48 +195,49 @@ autocompletejs:
 </div>
 
 <div id="declaration">
-    <hr/>
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 no-padding-left">
-        <h2>Simple example</h2>
+    <hr>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <h2>Client integration</h2>
+
         <pre><code class="html">&lt;input data-autocomplete="example.php" /&gt;
+
 &lt;script type="text/javascript"&gt;
-AutoComplete();
+    AutoComplete();
 &lt;/script&gt;
-</code></pre>
+
+&lt;!-- OR --&gt;
+
+&lt;input id="autocomplete-example" /&gt;
+
+&lt;script type="text/javascript"&gt;
+    AutoComplete({
+        EmptyMessage: "No item found",
+    }, "#autocomplete-example");
+&lt;/script&gt;</code></pre>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-        <h2>Advance example</h2>
-        <pre><code class="html">&lt;input id="autocomplete-example" /&gt;
-&lt;script type="text/javascript"&gt;
-AutoComplete({
-EmptyMessage: "No item found",
-Url: "example.php",
-}, "#autocomplete-example");
-&lt;/script&gt;
-</code></pre>
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 no-padding-right">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
         <h2>Server response</h2>
-        <pre><code class="json">[
-"France",
-"United States",
-"Germany"
+        
+        <pre><code class="json">// JSON array
+[
+    "France",
+    "United States",
+    "Germany"
 ]
-</code></pre>
 
-        <pre><code class="json">
+// OR JSON object
 {
-"FR": "France",
-"USA": "United States",
-"DE": "Germany"
+    "FR": "France",
+    "USA": "United States",
+    "DE": "Germany"
 }
 </code></pre>
     </div>
-
-    <div class="clearfix"></div>
 </div>
+
+    <!-- <div class="clearfix"></div> -->
 
 <div style="text-align: center;">
     <!-- Documentation Top -->
