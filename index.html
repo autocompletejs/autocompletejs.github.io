@@ -172,9 +172,9 @@ autocompletejs:
                     <div class="col-lg-8">
                         <pre style="line-height:1.5; text-align: left;"><code class="javascript">// bower.json
 {
-"dependencies": {
-"autocomplete.js": "{{ page.autocompletejs.short_version }}.*"
-}
+    "dependencies": {
+        "autocomplete.js": "{{ page.autocompletejs.short_version }}.*"
+    }
 }
 </code></pre>
                     </div>
@@ -277,7 +277,7 @@ autocompletejs:
                     <div>
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="active">
-                                <a href="#{{ item.name }}_default" aria-controls="home" role="tab" data-toggle="tab">
+                                <a href="#{{ item.name }}_default" aria-controls="{{ item.name }}_default" role="tab" data-toggle="tab">
                                     Default
                                 </a>
                             </li>
@@ -354,7 +354,7 @@ autocompletejs:
                     <div>
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="active">
-                                <a href="#{{ item.name }}_prototype" aria-controls="home" role="tab" data-toggle="tab">
+                                <a href="#{{ item.name }}_prototype" aria-controls="{{ item.name }}_prototype" role="tab" data-toggle="tab">
                                     Prototype
                                 </a>
                             </li>
