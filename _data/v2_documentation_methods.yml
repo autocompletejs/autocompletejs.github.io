@@ -9,3 +9,156 @@
       });
     definition: >
       <strong>now</strong> argument is a boolean value. The default value is <strong>false</strong>.
+
+- name: _EmptyMessage
+  description: Return the message when no result returns
+  snippet:
+    source: L209
+    prototype: >
+      AutoComplete({
+        _EmptyMessage: function() {
+        }
+      });
+    definition: >
+      The value returned is a <strong>string</strong>.<br/>
+      Empty message to display when no results found.
+
+- name: _Focus
+  description: Manage the display of results (only to display - Hide results, see the method _Blur)
+  snippet:
+    source: L296
+    prototype: >
+      AutoComplete({
+        _Focus: function() {
+        }
+      });
+
+- name: _Highlight
+  description: Highlight part of results which match with query search.
+  snippet:
+    source: L239
+    prototype: >
+      AutoComplete({
+        _Highlight: function(label) {
+        }
+      });
+    definition: >
+      <strong>label</strong> argument is the item result.
+      Must return a string value. <strong>label</strong> argument highlighted.
+
+- name: _Limit
+  description: Returns the maximum number of results
+  snippet:
+    source: L226
+    prototype: >
+      AutoComplete({
+        _Limit: function() {
+        }
+      });
+    definition: >
+      Must return an <strong>integer</strong> value.
+
+- name: _HttpMethod
+  description: Returns the HTTP method to use 
+  snippet:
+    source: L249
+    prototype: >
+      AutoComplete({
+        _HttpMethod: function() {
+        }
+      });
+    definition: >
+      Return <strong>string</strong> value.
+
+- name: _Open
+  description: Bind all results item if one result is opened
+  snippet:
+    source: L307
+    prototype: >
+      AutoComplete({
+        _Open: function() {
+        }
+      });
+
+- name: _QueryArg
+  description: Returns the query param to use
+  snippet:
+    source: L260
+    prototype: >
+      AutoComplete({
+        _QueryArg: function() {
+        }
+      });
+    definition: >
+      Return <strong>string</strong> value.<br/>
+
+- name: _Position
+  description: Calculate results position
+  snippet:
+    source: L321
+    prototype: >
+      AutoComplete({
+        _Position: function() {
+        }
+      });
+
+- name: _Post
+  description: Deal with request response
+  snippet:
+    source: L392
+    prototype: >
+      AutoComplete({
+        _Post: function(response) {
+        }
+      });
+    definition: >
+      <strong>response</strong> argument is a <strong>string</strong> value.
+      Value returned must be a <strong>string</strong> or an <strong>array of <a href="https://github.com/autocompletejs/autocomplete.js/blob/v{{ page.autocompletejs.version }}/src/autocomplete.ts#L74" target="_blank">ResponseItem</a></strong>
+
+- name: _Render
+  description: Execute the render of results DOM element
+  snippet:
+    source: L329
+    prototype: >
+      AutoComplete({
+        _Render: function(response) {
+        }
+      });
+    definition: >
+      <strong>response</strong> argument must be a <strong>string</strong> or an <strong>array of <a href="https://github.com/autocompletejs/autocomplete.js/blob/v{{ page.autocompletejs.version }}/src/autocomplete.ts#L74" target="_blank">ResponseItem</a></strong>.
+
+- name: _Pre
+  description: Return the autocomplete value to send (before request)
+  snippet:
+    source: L427
+    prototype: >
+      AutoComplete({
+        _Pre: function() {
+        }
+      });
+    definition: >
+      Returns a <strong>string</strong> value.
+
+- name: _Select
+  description: Choice one result item
+  snippet:
+    source: L434
+    prototype: >
+      AutoComplete({
+        _Select: function(item) {
+        }
+      });
+    definition: >
+      <strong>item</strong> argument must be a <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank">HTMLElement</a>.
+
+- name: _Url
+  description: Returns the URL to use for AJAX request
+  snippet:
+    source: L271
+    prototype: >
+      AutoComplete({
+        _Url: function() {
+        }
+      });
+    definition: >
+      Value returned must be a <strong>string</strong>.
