@@ -1,7 +1,9 @@
+.bash_history
 .bundle
 .cache
 .config
 .jekyll-metadata
+.npm
 .sass-cache
 .ssh
 _site
@@ -10,4 +12,5 @@ docker-compose.yml
 Gemfile.lock
 lib
 node_modules
+npm-debug.log
 vendor

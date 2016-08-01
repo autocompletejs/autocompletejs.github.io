@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "autocomplete.js": "2.1.*",
+    "autocomplete.js_1": "https://github.com/autocompletejs/autocomplete.js/releases/download/v1.7.1/autocomplete-js.tar.gz",
     "bootstrap": "^3.3.6",
     "fontawesome": "^4.6.3"
   }

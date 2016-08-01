@@ -2,6 +2,7 @@
 module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-bower-task");
   grunt.loadNpmTasks("grunt-contrib-connect");
+  grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-exec");
@@ -11,10 +12,27 @@ module.exports = function(grunt) {
         //just run 'grunt bower:install' and you'll see files from your Bower packages in lib directory 
       }
     },
+    copy: {
+      fonts: {
+        files: [
+          {
+            src: [
+              "bower_components/bootstrap/fonts/*.{eot,svg,ttf,woff,woff2}",
+              "bower_components/fontawesome/fonts/*.{otf,eot,svg,ttf,woff,woff2}"
+            ],
+            dest: "_site/fonts/",
+            filter: 'isFile',
+            flatten: true,
+            expand: true
+          }
+        ]
+      }
+    },
     less: {
       prod: {
         files: {
-          '_site/css/main.css': 'css/main.less'
+          '_site/css/main.css': 'css/main.less',
+          '_site/css/1.css': 'css/1.less'
         }
       }
     },
@@ -46,7 +64,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.registerTask("build", ["bower:install", "exec:jekyll", "less"]);
+  grunt.registerTask("build", ["bower:install", "exec:jekyll", "less", "copy"]);
   grunt.registerTask("serve", ["build", "connect:server", "watch"]);
   return grunt.registerTask("default", ["serve"]);
 };
