@@ -125,7 +125,7 @@
         }
       });
     definition: >
-      <strong>response</strong> argument must be a <strong>string</strong> or an <strong>array of <a href="https://github.com/autocompletejs/autocomplete.js/blob/v{{ page.autocompletejs.version }}/src/autocomplete.ts#L74" target="_blank">ResponseItem</a></strong>.
+      <strong>response</strong> argument must be a <strong>string</strong> or an <strong>array of <a href="https://github.com/autocompletejs/autocomplete.js/blob/v2.1.0/src/autocomplete.ts#L74" target="_blank">ResponseItem</a></strong>.
 
 - name: _Pre
   description: Return the autocomplete value to send (before request)

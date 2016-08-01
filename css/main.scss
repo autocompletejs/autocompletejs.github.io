@@ -206,3 +206,34 @@ input[data-autocomplete]
         padding-right: 0;
     }
 }
+
+.hljs {
+    margin-top: 0;
+}
+
+.nav-tabs > li {
+    > a, > a:hover, > a:focus {
+        background-color: #d7d7d7;
+        border: 1px solid #d7d7d7;
+        
+    }
+
+    &.active {
+        > a, > a:hover, > a:focus
+        {
+            color: #e0e2e4;
+            background-color: #282B2E;
+            border: 1px solid #282B2E;
+        }
+    }
+}
+
+table {
+    td:first-child {
+        width: 250px;
+    }
+
+    td:last-child {
+        width: 450px;
+    }
+}

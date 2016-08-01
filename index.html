@@ -286,21 +286,23 @@ autocompletejs:
                                 <a href="#{{ item.name }}_js" aria-controls="{{ item.name }}_js" role="tab" data-toggle="tab">JS</a>
                             </li>
 
+                            {% if item.snippet.html %}
                             <li>
                                 <a href="#{{ item.name }}_html" aria-controls="{{ item.name }}_html" role="tab" data-toggle="tab">HTML</a>
                             </li>
+                            {% endif %}
                         </ul>
 
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="{{ item.name }}_default">
                                 {% if item.snippet.default %}
                                     {% if item.snippet.default.type == "plain" %}
-                                    {{ item.snippet.default.value }}
+                                    <pre><code class="plain">{{ item.snippet.default.value }}</code></pre>
                                     {% else %}
                                     <pre><code class="{{ item.snippet.default.type }}">{{ item.snippet.default.value }}</code></pre>
                                     {% endif %}
                                 {% else %}
-                                n/a
+                                <pre><code class="raw">No default value</code></pre>
                                 {% endif %}
                             </div>
 
@@ -311,10 +313,6 @@ autocompletejs:
                             {% if item.snippet.html %}
                             <div role="tabpanel" class="tab-pane" id="{{ item.name }}_html">
                                 <pre><code class="html">{{ item.snippet.html }}</code></pre>
-                            </div>
-                            {% else %}
-                            <div role="tabpanel" class="tab-pane" id="{{ item.name }}_html">
-                                n/a
                             </div>
                             {% endif %}
                         </div>
