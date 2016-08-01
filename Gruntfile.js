@@ -5,6 +5,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-exec");
   grunt.initConfig({
+    bower: {
+      install: {
+        //just run 'grunt bower:install' and you'll see files from your Bower packages in lib directory 
+      }
+    },
     exec: {
       jekyll: {
         cmd: "jekyll build --trace"
@@ -15,7 +20,7 @@ module.exports = function(grunt) {
         livereload: true
       },
       source: {
-        files: ["_layouts/**/*", "css/**/*", "js/**/*", "_config.yml", "*.html"],
+        files: ["_layouts/**/*", "_data/**/*", "_includes/**/*", "css/**/*", "js/**/*", "_config.yml", "*.html"],
         tasks: ["exec:jekyll"]
       }
     },
@@ -29,7 +34,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.registerTask("build", ["exec:jekyll"]);
+  grunt.registerTask("build", ["bower:install", "exec:jekyll"]);
   grunt.registerTask("serve", ["build", "connect:server", "watch"]);
   return grunt.registerTask("default", ["serve"]);
 };

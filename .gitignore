@@ -8,5 +8,6 @@ _site
 bower_components
 docker-compose.yml
 Gemfile.lock
+lib
 node_modules
 vendor
