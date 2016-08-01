@@ -1,6 +1,7 @@
 "use strict";
 module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-bower-task");
+  grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-connect");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-less");
@@ -10,6 +11,28 @@ module.exports = function(grunt) {
     bower: {
       install: {
         //just run 'grunt bower:install' and you'll see files from your Bower packages in lib directory 
+      }
+    },
+    concat: {
+      v1: {
+        src: [
+          "bower_components/jquery/dist/jquery.js",
+          "bower_components/bootstrap/dist/js/bootstrap.js",
+          "bower_components/autocomplete.js_1/autocomplete.js",
+          "js/1.js",
+          "js/analytics.js"
+        ],
+        dest: '_site/js/1.js',
+      },
+      v2: {
+        src: [
+          "bower_components/jquery/dist/jquery.js",
+          "bower_components/bootstrap/dist/js/bootstrap.js",
+          "bower_components/autocomplete.js/dist/autocomplete.js",
+          "js/main.js",
+          "js/analytics.js"
+        ],
+        dest: '_site/js/main.js',
       }
     },
     copy: {
@@ -52,11 +75,15 @@ module.exports = function(grunt) {
       },
       jekyll: {
         files: ["_layouts/**/*", "_data/**/*", "_includes/**/*", "css/**/*", "js/**/*", "_config.yml", "*.html"],
-        tasks: ["exec:jekyll"]
+        tasks: ["exec:jekyll", "concat", "less", "copy"]
       },
       css: {
         files: ["css/**/*"],
         tasks: ["less:prod"]
+      },
+      js: {
+        files: ["js/**/*"],
+        tasks: ["concat"]
       }
     },
     connect: {
@@ -69,7 +96,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.registerTask("build", ["bower:install", "exec:jekyll", "less", "copy"]);
+  grunt.registerTask("build", ["bower:install", "exec:jekyll", "concat", "less", "copy"]);
   grunt.registerTask("serve", ["build", "connect:server", "watch"]);
   return grunt.registerTask("default", ["serve"]);
 };
