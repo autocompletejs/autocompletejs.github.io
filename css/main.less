@@ -55,6 +55,10 @@
 
 @import 'https://fonts.googleapis.com/css?family=Lily+Script+One';
 
+// Variables
+@brand-primary: #282B2E;
+// End variables
+
 body{background:white;}
 div.api-item > *{display:none;}
 div.api-item > .active{display:block;}
@@ -234,4 +238,19 @@ table {
     td:last-child {
         width: 450px;
     }
+}
+
+[data-id='installation-scratch'] {
+    line-height: 90px;
+}
+
+.btn-group > .btn {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+    background-color: @brand-primary;
 }
