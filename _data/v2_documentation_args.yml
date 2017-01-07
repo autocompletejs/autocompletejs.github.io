@@ -141,3 +141,41 @@
       &lt;input
         data-autocomplete="/my/url"
       /&gt;
+
+- name: KeyboardMappings
+  description: >
+    <strong>Object</strong> value.</br>
+    You can easily define new keyboard event to make an autocomplete flexible whick match with your specific usercase.<br/>
+    Default value contains three rules to map Enter, Up and Down keys, and all alphanumeric keys.<br/><br/>
+    An issue has been open to detail.</br>
+    <strong><a href='https://github.com/autocompletejs/autocomplete.js/issues/34' target='_blank'>How to customized KeyboardMappings value</a></strong>
+  snippet:
+    default:
+      type: json
+      value: >
+        {
+          "KeyboardMappings": {
+            "Enter": {
+                Conditions: [{
+                    Is: 13,
+                    Not: false
+                }],
+                Callback: function() {
+                    if (this.DOMResults.getAttribute("class").indexOf("open") != -1) {
+                        var liActive = this.DOMResults.querySelector("li.active");
+
+                        if (liActive !== null) {
+                            this._Select(liActive);
+                            this.DOMResults.setAttribute("class", "autocomplete");
+                        }
+                    }
+                },
+                Operator: ConditionOperator.AND
+            },
+            "KeyUpAndDown": {...},
+            "AlphaNum": {...}
+        }
+    js: >
+      AutoComplete({
+        KeyboardMappings: {...}
+      });
