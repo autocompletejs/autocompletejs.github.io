@@ -170,9 +170,11 @@
                         }
                     }
                 },
-                Operator: ConditionOperator.AND
+                Operator: ConditionOperator.AND,
+                Event: EventType.KEYUP
             },
-            "KeyUpAndDown": {...},
+            "KeyUpAndDown_up": {...},
+            "KeyUpAndDown_down": {...},
             "AlphaNum": {...}
         }
     js: >
