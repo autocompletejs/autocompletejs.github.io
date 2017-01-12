@@ -111,6 +111,23 @@
         data-autocomplete-limit="10"
       /&gt;
 
+- name: MinChars
+  description: >
+    <strong>Integer</strong> value.<br/>
+    Send request only when input value has a lenght greather than MinChars parameter.
+  snippet:
+    default:
+      type: plain
+      value: 0
+    js: >
+      AutoComplete({
+        MinChars: 2
+      });
+    html: >
+      &lt;input
+        data-autocomplete-minchars="2"
+      /&gt;
+
 - name: QueryArg
   description: >
     <strong>String</strong> value.<br/>

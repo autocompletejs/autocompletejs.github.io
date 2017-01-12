@@ -1,7 +1,7 @@
 - name: _Blur
   description: Method to hide results
   snippet:
-    source: L306
+    source: L322
     prototype: >
       AutoComplete({
         _Blur: function(now) {
@@ -13,7 +13,7 @@
 - name: _EmptyMessage
   description: Return the message when no result returns
   snippet:
-    source: L233
+    source: L236
     prototype: >
       AutoComplete({
         _EmptyMessage: function() {
@@ -26,7 +26,7 @@
 - name: _Focus
   description: Manage the display of results (only to display - Hide results, see the method _Blur)
   snippet:
-    source: L320
+    source: L336
     prototype: >
       AutoComplete({
         _Focus: function() {
@@ -36,7 +36,7 @@
 - name: _Highlight
   description: Highlight part of results which match with query search.
   snippet:
-    source: L263
+    source: L279
     prototype: >
       AutoComplete({
         _Highlight: function(label) {
@@ -49,7 +49,7 @@
 - name: _Limit
   description: Returns the maximum number of results
   snippet:
-    source: L250
+    source: L253
     prototype: >
       AutoComplete({
         _Limit: function() {
@@ -58,10 +58,22 @@
     definition: >
       Must return an <strong>integer</strong> value.
 
+- name: _MinChars
+  description: Returns the minimum of chars necessary to send AJAX request
+  snippet:
+    source: L266
+    prototype: >
+      AutoComplete({
+        _MinChars: function() {
+        }
+      });
+    definition: >
+      Must return an <strong>integer</strong> value.
+
 - name: _HttpMethod
   description: Returns the HTTP method to use 
   snippet:
-    source: L273
+    source: L289
     prototype: >
       AutoComplete({
         _HttpMethod: function() {
@@ -73,7 +85,7 @@
 - name: _Open
   description: Bind all results item if one result is opened
   snippet:
-    source: L331
+    source: L347
     prototype: >
       AutoComplete({
         _Open: function() {
@@ -83,7 +95,7 @@
 - name: _QueryArg
   description: Returns the query param to use
   snippet:
-    source: L284
+    source: L300
     prototype: >
       AutoComplete({
         _QueryArg: function() {
@@ -95,7 +107,7 @@
 - name: _Position
   description: Calculate results position
   snippet:
-    source: L345
+    source: L361
     prototype: >
       AutoComplete({
         _Position: function() {
@@ -105,7 +117,7 @@
 - name: _Post
   description: Deal with request response
   snippet:
-    source: L419
+    source: L435
     prototype: >
       AutoComplete({
         _Post: function(response) {
@@ -118,7 +130,7 @@
 - name: _Render
   description: Execute the render of results DOM element
   snippet:
-    source: L215
+    source: L369
     prototype: >
       AutoComplete({
         _Render: function(response) {
@@ -130,7 +142,7 @@
 - name: _RenderResponseItems
   description: Make rendered for JSON returned
   snippet:
-    source: L372
+    source: L388
     prototype: >
       AutoComplete({
         _RenderResponseItems: function(response) {
@@ -140,7 +152,7 @@
 - name: _RenderRaw
   description: Make rendered for HTML returned
   snippet:
-    source: L398
+    source: L414
     prototype: >
       AutoComplete({
         _RenderRaw: function(response) {
@@ -150,7 +162,7 @@
 - name: _Pre
   description: Return the autocomplete value to send (before request)
   snippet:
-    source: L454
+    source: L470
     prototype: >
       AutoComplete({
         _Pre: function() {
@@ -162,7 +174,7 @@
 - name: _Select
   description: Choice one result item
   snippet:
-    source: L461
+    source: L477
     prototype: >
       AutoComplete({
         _Select: function(item) {
@@ -174,7 +186,7 @@
 - name: _Url
   description: Returns the URL to use for AJAX request
   snippet:
-    source: L295
+    source: L311
     prototype: >
       AutoComplete({
         _Url: function() {
