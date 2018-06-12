@@ -7,7 +7,7 @@ WORKDIR /data
 
 RUN adduser jekyll --uid 1000 --disabled-password \
 	&& bundle install \
-	&& curl -sL https://deb.nodesource.com/setup_4.x | bash - \
+	&& curl -sL https://deb.nodesource.com/setup_6.x | bash - \
 	&& apt install -y \
 		nodejs \
     && chmod +x /entrypoint.sh \
