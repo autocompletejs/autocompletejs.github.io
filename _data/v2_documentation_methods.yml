@@ -22,6 +22,16 @@
     definition: >
       <strong>value</strong> argument is a string value (value of input autocomplete). If the method returns <strong>undefined</strong>, a new request is sent.
 
+- name: _Close
+  description: Method to close result list
+  snippet:
+    source: L410
+    prototype: >
+      AutoComplete({
+        _Close: function() {
+        }
+      });
+
 - name: _EmptyMessage
   description: Return the message when no result returns
   snippet:
@@ -34,6 +44,16 @@
     definition: >
       The value returned is a <strong>string</strong>.<br/>
       Empty message to display when no results found.
+
+- name: _Error
+  description: Method to manage HTTP request error
+  snippet:
+    source: L502
+    prototype: >
+      AutoComplete({
+        _Error: function() {
+        }
+      });
 
 - name: _Focus
   description: Manage the display of results (only to display - Hide results, see the method _Blur)
