@@ -4,7 +4,7 @@ services:
   api:
     image: node:4
     ports:
-      - 8000
+      - 80
     volumes:
       - ./main.js:/data/main.js:ro
       - ./countries.json:/data/countries.json:ro
